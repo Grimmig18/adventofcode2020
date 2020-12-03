@@ -1,4 +1,4 @@
-file = open('E:\\Projekte\\2020\\adventofcode2020\\24-days-of-christmas\\day-3\\input.txt', 'r')
+file = open("input.txt", "r")
 lines = file.readlines()
 
 dx = [1, 3, 5, 7, 1]
