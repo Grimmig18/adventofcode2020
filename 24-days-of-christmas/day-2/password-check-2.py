@@ -1,7 +1,7 @@
 from operator import xor
 
 # relative paths don't work?!
-file = open('E:\\Projekte\\2020\\adventofcode2020\\24-days-of-christmas\\day-2\\input.txt', 'r') 
+file = open('input.txt', 'r') 
 lines = file.readlines()
 
 total_right = len(lines)

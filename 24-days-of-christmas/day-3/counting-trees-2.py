@@ -5,7 +5,7 @@ dx = [1, 3, 5, 7, 1]
 dy = [1, 1, 1, 1, 2]
 
 mltp = 1
-
+l = len(lines[0]) - 1
 
 for i in range(len(dx)):
     trees = 0
@@ -13,9 +13,6 @@ for i in range(len(dx)):
     y = 0
     
     while y < len(lines):
-        
-        l = len(lines[y]) - 1
-        
         if lines[y][x] == '#':
             trees += 1
         
