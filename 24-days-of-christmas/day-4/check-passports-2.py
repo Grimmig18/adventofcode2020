@@ -1,6 +1,6 @@
 import re
 
-file = open('input2.txt', 'r')
+file = open('input.txt', 'r')
 lines = file.readlines()
 
 req_fields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
@@ -40,7 +40,7 @@ def validate(p):
     if p['ecl'] not in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
         return False
 
-    if not re.compile('[0-9]{9}').match(p['pid']) or len(p['pid']) > 9:
+    if not re.compile('^[0-9]{9}$').match(p['pid']):
         return False
 
 
