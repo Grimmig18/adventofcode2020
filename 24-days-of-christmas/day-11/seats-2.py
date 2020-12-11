@@ -37,9 +37,11 @@ def get_adjacent_seats(i, j, seats, seat_empty, seat_occ):
 
 
 changes = True
+runs = 0
 
 while changes == True:
     new_map = []
+    runs += 1
 
     # Loop through every seat
     i = 0 # Rows
@@ -75,4 +77,5 @@ for row in seat_map:
     occ_count += row.count(seat_occ)
     print(row)
 
-print(occ_count)
+print("Occupied seats: ", occ_count)
+print("Runs: ", runs)

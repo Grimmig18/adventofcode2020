@@ -8,40 +8,34 @@ seat_map = []
 for line in file.readlines(): seat_map.append(line.replace('\n', ''))
 
 def get_adjacent_seats(i, j, seats):
+    steps = [
+        [1, 0],
+        [1, 1],
+        [0, 1],
+        [-1, 1],
+        [-1, 0],
+        [-1, -1],
+        [0, -1],
+        [1, -1]
+    ]
+
     adj = []
-    # First row
-    if i > 0:
-        if j > 0 and j < len(seats[i]) - 1:
-            adj.extend([seats[i - 1][j-1], seats[i-1][j], seats[i-1][j+1]])
-        elif j == 0:
-            adj.extend([seats[i-1][j], seats[i-1][j+1]])
-        elif j == len(seats[i]) - 1:
-            adj.extend([seats[i - 1][j-1], seats[i-1][j]])
 
-    # Second row
-    if j > 0 and j < len(seats[i]) - 1:
-        adj.extend([seats[i][j-1], seats[i][j+1]])
-    elif j == 0:
-        adj.extend([seats[i][j+1]])
-    elif j == len(seats[i]) - 1:
-        adj.extend([seats[i][j-1]])
-
-    # Third Row
-    if i < len(seats) - 1:
-        if j > 0 and j < len(seats[i]) - 1:
-            adj.extend([seats[i + 1][j-1], seats[i+1][j], seats[i+1][j+1]])
-        elif j == 0:
-            adj.extend([seats[i+1][j], seats[i+1][j+1]])
-        elif j == len(seats[i]) - 1:
-            adj.extend([seats[i + 1][j-1], seats[i+1][j]])
-
+    for step in steps:
+        i_ = i + step[0]
+        j_ = j + step[1]
+        if i_ in range(0, len(seats)) and j_ in range(0, len(seats[i])):
+            if seats[i_][j_] == seat_occ:
+                adj.append(seats[i_][j_])
 
     return adj
 
 
 changes = True
+runs = 0
 
 while changes == True:
+    runs += 1
     new_map = []
 
     # Loop through every seat
@@ -78,4 +72,5 @@ for row in seat_map:
     occ_count += row.count(seat_occ)
     print(row)
 
-print(occ_count)
+print("Occupied seats: ", occ_count)
+print("Runs: ", runs)
