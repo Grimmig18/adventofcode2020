@@ -6,7 +6,6 @@ skip = 25
 
 for line in lines: numbers.append(int(line))
 
-
 for i in range(skip, len(numbers)):
     found = False
 

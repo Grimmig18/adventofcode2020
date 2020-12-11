@@ -26,12 +26,16 @@ for i in range(skip, len(numbers)):
 
 
 # Find set
+done = False
 for i in range(0, len(numbers)):
     j = i + 2
     while np.sum(numbers[i:j]) <= weakness:
         # print(np.sum(numbers[i:j]))
         if np.sum(numbers[i:j]) == weakness:
-            print(numbers[i:j])
-            print(i, j-1, numbers[i], numbers[j-1], max(numbers[i:j]) + min(numbers[i:j]))
+            print(i, j-1, max(numbers[i:j]) + min(numbers[i:j]))
+            done = True
             break
         j += 1
+
+    if done == True:
+        break
